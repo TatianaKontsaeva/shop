@@ -62,9 +62,12 @@ export default {
         padding: 20px;
         margin: 20px;
         box-shadow: 0 0 8px 0 grey;
+        background: #212121;
+        color: white;
+        border-radius: 20px;
     }
     .v-cart-item__image {
-        min-width: 25%;
+        min-width: 20%;
     }
    
 </style>

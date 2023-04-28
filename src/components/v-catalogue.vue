@@ -59,6 +59,8 @@ export default {
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
+        background: #fff
+
     }
 .v-catalogue__title {
     margin:0 auto;
