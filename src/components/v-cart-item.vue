@@ -12,7 +12,7 @@
             <p>{{ cart_item_data.about }}</p>
         </div>
         <div class="v-cart-item__quantity">
-            <p>Quantity</p>
+        
             <span>{{cart_item_data.quantity }}</span>
         </div>
         <button class="btn" @click="deleteFromCart">Delete</button>
@@ -64,7 +64,7 @@ export default {
         box-shadow: 0 0 8px 0 grey;
     }
     .v-cart-item__image {
-        min-width: 10%;
+        min-width: 25%;
     }
    
 </style>

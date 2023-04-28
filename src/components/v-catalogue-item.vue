@@ -37,13 +37,13 @@ export default {
 <style lang="scss">
 
 .v-catalogue-item {
-    flex-basis: 40%;
+    flex-basis: 29%;
     box-shadow: 0 0 8px 0 grey;
     padding: 30px;
     margin: 20px;
 }
 .v-catalogue-item__img {
-    width: 160px;
+    width: 100%;
     margin: 0 auto;
     display: block;
 }
