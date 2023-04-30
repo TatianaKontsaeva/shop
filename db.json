@@ -7,7 +7,7 @@
             "article": "T1",
             "available": true,
             "category": "it products",
-            "quantity": 0,
+            "quantity": 1,
             "about": "Hi i'm an Analyst! Nice to meet you!"
         },
         {
@@ -17,7 +17,7 @@
             "article": "T2",
             "available": true,
             "category": "it products",
-            "quantity": 0,
+            "quantity": 1,
             "about": "Hey my friend! Nice to meet you!"
         },
         {
@@ -27,7 +27,7 @@
             "article": "T3",
             "available": false,
             "category": "it products",
-            "quantity": 0,
+            "quantity": 1,
             "about": "Hello! How have you been?"
         },
         {
@@ -37,7 +37,7 @@
             "article": "T4",
             "available": true,
             "category": "it products",
-            "quantity": 0,
+            "quantity": 1,
             "about": "Nice to meet you! What about Vue?"
         },
         {
@@ -47,7 +47,7 @@
             "article": "T5",
             "available": false,
             "category": "it products",
-            "quantity": 0,
+            "quantity": 1,
             "about": "Hey! We'll solve any problems!"
         },
         {
@@ -57,7 +57,7 @@
             "article": "T6",
             "available": true,
             "category": "it products",
-            "quantity": 0,
+            "quantity": 1,
             "about": "Hi! I've many solutions!"
         }
     ]
