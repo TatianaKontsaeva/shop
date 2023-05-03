@@ -6,7 +6,7 @@
                 <i class="medium material-icons">shopping_basket</i>
                 {{ CART.length }}</div>
 
-            <button class="btn">Back</button>
+            <button class="btn deep-purple lighten-2">Back</button>
         </router-link>
         <p v-if="!CART.length">В корзине ничего нет</p>
        
@@ -84,12 +84,7 @@ export default {
 </script>
 <style scoped>
     .v-cart {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        color: grey;
-        font-size: 20px;
-        margin-bottom: 150px;
+        font-size: 18px;
     }
     p {
         text-align: center;

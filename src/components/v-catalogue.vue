@@ -1,8 +1,8 @@
 <template>
     <div class="v-catalogue">
-        <h1 class="v-catalogue__title">Каталог</h1>
-        <router-link :to="{name: 'cart', params: {cart_data: CART}}">
-            <div class="v-catalogue__link_to_cart"><i class="medium material-icons">shopping_basket</i>
+        <h1 class="v-catalogue__title">Каталог курсов</h1>
+        <router-link :to="{name: 'cart', state: {cart_data: CART}}">
+            <div class="v-catalogue__link_to_cart"><i class="small material-icons">shopping_basket</i>
                 {{ CART.length }}</div>
         </router-link>
         
@@ -53,22 +53,32 @@ export default {
 </script>
 
 <style>
- .v-catalogue,
+.v-catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
  .v-catalogue__list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        background: #fff
-
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 20px;
+}
+    
 .v-catalogue__title {
     margin:0 auto;
+    padding-bottom: 20px;
+    color: #ede7f6;
 }
 .v-catalogue__link_to_cart {
     padding: absolute;
     top: 10px;
     right: 15px;
     padding: 15px;
+    color: #b39ddb
+}
+.material-icons {
+    color: #b39ddb;
 }
 </style>

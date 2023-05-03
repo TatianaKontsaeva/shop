@@ -1,14 +1,13 @@
 <template>
     <div class="v-catalogue-item">
         <img 
-        class="v-catalogue-item__img" 
+        class="v-catalogue-item__img circle" 
         :src="require('../assets/images/' + product_data.image)" 
         alt="picture">
         <p class="v-catalogue-item__name">{{product_data.name}}</p>
-        <p class="v-catalogue-item__price">{{product_data.price}}</p>
-        <p class="v-catalogue-item__price">{{product_data.about}}</p>
-        <p class="v-catalogue-item__price">{{product_data.category}}</p>
-        <button class="v-catalogue-item__add_to_cart_btn btn" @click="addToCart">Add to cart</button>
+        <p class="v-catalogue-item__price">Price: {{product_data.price}} RUB</p>
+        <p class="v-catalogue-item__about">{{product_data.about}}</p>
+        <button class="v-catalogue-item__add_to_cart_btn btn deep-purple darken-2" @click="addToCart">Add to cart</button>
     </div>
 </template>
 
@@ -37,18 +36,16 @@ export default {
 <style lang="scss">
 
 .v-catalogue-item {
-    flex-basis: 23%;
-    box-shadow: 0 0 8px 0 grey;
+    flex-basis: 25%;
+    box-shadow: 0 0 8px 0 #e0e0e0;
     padding: 20px;
-    margin: 20px;
-    background: #0b0b0b;
-    color: aliceblue;
-    border: 1px solid #212121;
-    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #22237f;
+    border-radius: 10px;
+    background: #1f154d;
 }
-.v-catalogue-item__img {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
+.v-catalogue-item__name {
+    font-size: 20px;
 }
+
 </style>

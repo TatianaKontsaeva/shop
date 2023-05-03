@@ -21,7 +21,6 @@ export default {
     props: {},
     data() {
         return {
-            title: "hello folks!",
         };
     },
     computed: {
