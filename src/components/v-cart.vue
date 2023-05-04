@@ -1,7 +1,7 @@
 <template>
     <div class="v-cart">
             <router-link :to="{name: 'catalogue'}">
-                <h3 class="v-cart__title">Quantity in cart: {{ CART.reduce((sum, item) => sum + item.quantity, 0) }}</h3>
+                <h3 class="v-cart__title">Cart</h3>
                 <button class="btn deep-purple lighten-2">Back to catalog</button>
             </router-link>
         <p v-if="!CART.length">There is nothing in the cart...&#128542;</p>
@@ -16,6 +16,7 @@
         />
        
         <div class="v-cart__total">
+            <p class="v-cart__total__quantity" v-if="CART.length>0">Quantity in cart: {{ CART.reduce((sum, item) => sum + item.quantity, 0) }}</p>
             <p class="v-cart__total__name" v-if="TOTAL>0">Total: {{TOTAL}} &#8381;</p>
         </div>
     </div>
@@ -80,6 +81,7 @@ export default {
     right: 0;
     left: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     max-width: 400px;
     margin: 0 auto;
@@ -89,7 +91,8 @@ export default {
     border-radius: 20px;
     margin-bottom: 20px;
    }
-   .v-cart__total__name {
+   .v-cart__total__name,
+   .v-cart__total__quantity {
     font-size: 18px;
    }
    .btn {
