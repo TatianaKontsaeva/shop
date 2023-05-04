@@ -1,11 +1,11 @@
 <template>
     <div class="v-catalogue">
-        <h1 class="v-catalogue__title">Каталог курсов</h1>
-        <router-link :to="{name: 'cart', state: {cart_data: CART}}">
-            <div class="v-catalogue__link_to_cart"><i class="small material-icons">shopping_basket</i>
+        <h1 class="v-catalogue__title">Course catalog</h1>
+        <router-link :to="{name: 'cart'}">
+            <div class="v-catalogue__link_to_cart"><i class="small material-icons" >shopping_basket</i>
                 {{ CART.length }}</div>
         </router-link>
-        
+
         <div class="v-catalogue__list">
             <vCatalogueItem
             v-for="product in PRODUCTS" 
@@ -27,9 +27,7 @@ export default {
     },
     props: {},
     data () {
-        return {
-           
-        }
+        return {}
     },
     computed: {
         ...mapGetters(['PRODUCTS', 'CART'])
@@ -47,9 +45,7 @@ export default {
             }
         })
     }
-
 };
-
 </script>
 
 <style>

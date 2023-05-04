@@ -5,7 +5,7 @@
         :src="require('../assets/images/' + product_data.image)" 
         alt="picture">
         <p class="v-catalogue-item__name">{{product_data.name}}</p>
-        <p class="v-catalogue-item__price">Price: {{product_data.price}} RUB</p>
+        <p class="v-catalogue-item__price">Price: {{product_data.price}} &#8381;</p>
         <p class="v-catalogue-item__about">{{product_data.about}}</p>
         <button class="v-catalogue-item__add_to_cart_btn btn deep-purple darken-2" @click="addToCart">Add to cart</button>
     </div>

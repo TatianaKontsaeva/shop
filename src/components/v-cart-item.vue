@@ -7,16 +7,16 @@
        
         <div>
             <p>{{ cart_item_data.name }}</p>
-            <p>{{ cart_item_data.price }}</p>
+            <p>{{ cart_item_data.price }} &#8381;</p>
             <p>{{ cart_item_data.article }}</p>
             <p>{{ cart_item_data.about }}</p>
         </div>
         <div class="v-cart-item__quantity">
         <p>Quantity:</p>
             <span>
-                <span class="quantity__btn" @click="decrementItem">-</span>
+                <span class="quantity__btn" @click="decrementItem">&#8722;</span>
                 {{cart_item_data.quantity }}
-                <span  class="quantity__btn" @click="inkrementItem">+</span>
+                <span  class="quantity__btn" @click="incrementItem">&#43;</span>
             </span>
         </div>
         <button class="btn deep-purple lighten-4" @click="deleteFromCart">Delete</button>
@@ -37,9 +37,7 @@ export default {
         }
     },
     data() {
-        return {
-            title: "hello folks!",
-        };
+        return {};
     },
     computed: {},
     methods: {
@@ -54,11 +52,7 @@ export default {
         }
     },
     watch: {},
-    mounted () {
-       
-    }
-
-
+    mounted () {}
 }
 </script>
 
@@ -91,20 +85,29 @@ export default {
         border-radius: 20px;
         border:1px solid #b39ddb;
     }
+    .deep-purple.darken-2:hover {
+        background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(139,0,255,1) 100%);
+        color: white;
+
+    }
     .deep-purple.lighten-4 {
-        color:#b39ddb;
-        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(139,0,255,1) 100%);
+        color:white;
+        background: linear-gradient(90deg, rgb(150, 0, 255), rgb(0, 25, 255));
         border-radius: 20px;
         border:1px solid #b39ddb;
+        transition-duration: 0.5s;
+    }
+    .deep-purple.lighten-4:hover {
+        background: linear-gradient(280deg, rgb(150, 0, 255), rgb(0, 25, 255));
     }
     .quantity__btn {
-    padding-top: 8px;
-    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(139, 0, 255) 100%);
-    border: 1px solid #b39ddb;
-    border-radius: 50%;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 8px;
-    margin: 10px;
+        padding-top: 8px;
+        background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(139, 0, 255) 100%);
+        border: 1px solid #b39ddb;
+        border-radius: 50%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 8px;
+        margin: 10px;
     }
 </style>

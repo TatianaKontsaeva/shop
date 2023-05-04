@@ -26,14 +26,15 @@ export default createStore({
           if (item.article === product.article) {
             isProductExist = true;
             item.quantity++;
-            item.price = item.price * 2;
           }
         })
         if (!isProductExist) {
           state.cart.push(product)
+          product.quantity++
         }
       } else {
           state.cart.push(product)
+          product.quantity++
         }  
     },
     REMOVE_FROM_CART: (state, index) => {
@@ -43,9 +44,10 @@ export default createStore({
       state.cart[index].quantity++
     },
     DECREMENT: (state, index) => {
-      if (state.cart[index].quantity > 1) {
+      if (state.cart[index].quantity >= 1) {
         state.cart[index].quantity--;
-  
+    } if (state.cart[index].quantity < 1) {
+      state.cart.splice(index, 1);
     }
     },
   },

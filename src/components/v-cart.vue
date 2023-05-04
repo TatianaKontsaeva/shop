@@ -1,15 +1,10 @@
 <template>
     <div class="v-cart">
-
         <router-link :to="{name: 'catalogue'}">
-            <div class="v-catalogue__link_to_cart">
-                <i class="medium material-icons">shopping_basket</i>
-                {{ CART.length }}</div>
-
-            <button class="btn deep-purple lighten-2">Back</button>
+            <h3 class="v-cart__title">Cart</h3>
+            <button class="btn deep-purple lighten-2">Back to catalog</button>
         </router-link>
-        <p v-if="!CART.length">В корзине ничего нет</p>
-       
+        <p v-if="!CART.length">&#128542;There is nothing in the cart...&#128542;</p>
          
         <vCartItem 
         v-for="(item, index) in CART"
@@ -22,7 +17,7 @@
        
         <!-- <div class="v-cart__total">
             <p class="v-cart__total__name">Total:</p>
-            <p>{{ cartTotalCost }}</p>
+            <p>{{ cartTotalPrice }}</p>
         </div> -->
     </div>
 </template>
@@ -47,22 +42,7 @@ export default {
         return {};
     },
     computed: {
-        ...mapGetters(['CART']),
- 
-        // cartTotalCost() {
-        //     let result = []
-
-        //     if (this.cart_data.length) {
-        //         for (let cart_item_data of this.cart_data) {
-        //         result.push(cart_item_data.price * cart_item_data.quantity)
-        //     }
-        //     result = result.reduce(function (sum, el) {
-        //         return sum + el;
-        //     })
-        //     return result;
-        //     } else return 0
-                
-        // }
+        ...mapGetters(['CART']), 
     },
     methods: {
         ...mapActions ([
@@ -85,24 +65,36 @@ export default {
 <style scoped>
     .v-cart {
         font-size: 18px;
+        margin-bottom: 150px;
     }
     p {
         text-align: center;
         font-size: 26px;
     }
-   .v-cart__total {
+   /* .v-cart__total {
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 8px 0 grey;
+    background: #794ae9;
     color: white;
-    background: #26a69a;
+    border-radius: 20px;
+    margin-bottom: 20px;
    }
    .v-cart__total__name {
     font-size: 20px;
+   } */
+   .btn {
+    margin: 15px;
+   }
+   .v-cart__title {
+    color: #ede7f6;
    }
 
 </style>
