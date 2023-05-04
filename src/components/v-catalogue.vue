@@ -19,7 +19,7 @@
 
 <script>
 import vCatalogueItem from './v-catalogue-item.vue';
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
     name: 'v-catalogue',
     components: {
@@ -30,13 +30,19 @@ export default {
         return {}
     },
     computed: {
-        ...mapGetters(['PRODUCTS', 'CART'])
+        ...mapGetters(['PRODUCTS', 'CART', "TOTAL"])
     },
     methods: {
         ...mapActions (['GET_PRODUCTS_FROM_API', 'ADD_TO_CART']),
         addToCart(data) {
             this.ADD_TO_CART(data);
-        }
+        },
+        ...mapMutations(["SET_TOTAL"]),
+    addToCart(data) {
+      data.quantity += 1;
+      this.ADD_TO_CART(data);
+      this.SET_TOTAL(this.TOTAL + data.price);
+    },
     },
     mounted() {
         this.GET_PRODUCTS_FROM_API().then((response) => {

@@ -29,7 +29,7 @@
 export default {
     name: "v-cart-item",
     props: {
-        cart_item_data:{
+        cart_item_data: {
             type: Object,
             default() {
                 return {};

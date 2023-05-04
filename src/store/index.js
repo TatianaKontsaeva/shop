@@ -5,7 +5,8 @@ import axios from 'axios'
 export default createStore({
   state: {
     products: [],
-    cart: []
+    cart: [],
+    total: 0,
   },
   getters: {
     PRODUCTS(state) {
@@ -13,7 +14,10 @@ export default createStore({
     },
     CART(state) {
       return state.cart
-    }
+    },
+    TOTAL(state) {
+      return state.total
+    },
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
@@ -30,12 +34,15 @@ export default createStore({
         })
         if (!isProductExist) {
           state.cart.push(product)
-          product.quantity++
+         
         }
       } else {
           state.cart.push(product)
-          product.quantity++
+      
         }  
+    },
+    SET_TOTAL: (state, total) => {
+      state.total = total
     },
     REMOVE_FROM_CART: (state, index) => {
       state.cart.splice(index, 1)

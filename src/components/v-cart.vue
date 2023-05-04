@@ -1,10 +1,10 @@
 <template>
     <div class="v-cart">
-        <router-link :to="{name: 'catalogue'}">
-            <h3 class="v-cart__title">Cart</h3>
-            <button class="btn deep-purple lighten-2">Back to catalog</button>
-        </router-link>
-        <p v-if="!CART.length">&#128542;There is nothing in the cart...&#128542;</p>
+            <router-link :to="{name: 'catalogue'}">
+                <h3 class="v-cart__title">Quantity in cart: {{ CART.reduce((sum, item) => sum + item.quantity, 0) }}</h3>
+                <button class="btn deep-purple lighten-2">Back to catalog</button>
+            </router-link>
+        <p v-if="!CART.length">There is nothing in the cart...&#128542;</p>
          
         <vCartItem 
         v-for="(item, index) in CART"
@@ -15,16 +15,15 @@
         @decrement="decrement(index)"
         />
        
-        <!-- <div class="v-cart__total">
-            <p class="v-cart__total__name">Total:</p>
-            <p>{{ cartTotalPrice }}</p>
-        </div> -->
+        <div class="v-cart__total">
+            <p class="v-cart__total__name" v-if="TOTAL>0">Total: {{TOTAL}} &#8381;</p>
+        </div>
     </div>
 </template>
 
 <script>
 import vCartItem from "./v-cart-item.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
     name: 'v-cart',
     components: {
@@ -35,14 +34,14 @@ export default {
             type: Array,
             default() {
                 return [];
-            }
-        }
+            },
+        },
     },
     data () {
         return {};
     },
     computed: {
-        ...mapGetters(['CART']), 
+        ...mapGetters(['CART', "TOTAL"]), 
     },
     methods: {
         ...mapActions ([
@@ -50,14 +49,18 @@ export default {
             'INCREMENT_CART_ITEM',
             'DECREMENT_CART_ITEM'
         ]),
+        ...mapMutations (["SET_TOTAL"]),
         increment(index) {
+            this.SET_TOTAL(this.TOTAL + this.CART[index].price);
             this.INCREMENT_CART_ITEM(index)
         },
         decrement(index) {
+            this.SET_TOTAL(this.TOTAL - this.CART[index].price);
             this.DECREMENT_CART_ITEM(index)
         },
         deleteFromCart(index) {
             this.DELETE_FROM_CART(index);
+            console.log(index);
         },
     },
 };
@@ -71,12 +74,11 @@ export default {
         text-align: center;
         font-size: 26px;
     }
-   /* .v-cart__total {
+   .v-cart__total {
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    padding: 10px;
     display: flex;
     justify-content: center;
     max-width: 400px;
@@ -88,8 +90,8 @@ export default {
     margin-bottom: 20px;
    }
    .v-cart__total__name {
-    font-size: 20px;
-   } */
+    font-size: 18px;
+   }
    .btn {
     margin: 15px;
    }
