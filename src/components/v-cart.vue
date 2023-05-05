@@ -81,8 +81,7 @@ export default {
     right: 0;
     left: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     max-width: 400px;
     margin: 0 auto;
     box-shadow: 0 0 8px 0 grey;

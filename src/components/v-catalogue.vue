@@ -38,10 +38,10 @@ export default {
             this.ADD_TO_CART(data);
         },
         ...mapMutations(["SET_TOTAL"]),
-    addToCart(data) {
-      data.quantity += 1;
-      this.ADD_TO_CART(data);
-      this.SET_TOTAL(this.TOTAL + data.price);
+        addToCart(data) {
+            data.quantity += 1;
+            this.ADD_TO_CART(data);
+            this.SET_TOTAL(this.TOTAL + data.price);
     },
     },
     mounted() {
