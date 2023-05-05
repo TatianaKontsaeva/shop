@@ -7,7 +7,6 @@ export default createStore({
     products: [],
     cart: [],
     total: 0,
-    total_quantity: 0,
   },
   getters: {
     PRODUCTS(state) {
@@ -35,11 +34,9 @@ export default createStore({
         })
         if (!isProductExist) {
           state.cart.push(product)
-         
         }
       } else {
           state.cart.push(product)
-      
         }  
     },
     SET_TOTAL: (state, total) => {
